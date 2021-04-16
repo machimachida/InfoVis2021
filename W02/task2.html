@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Task 2</title>
+    </head>
+    <body>
+        <h1>Task 2</h1>
+        <h2>211X119X</h2>
+        <script src="vec3.js"></script>
+        <script>
+            var x = y = z = 0;
+            var min = mid = max = 0;
+            function calc() {
+                x = document.getElementById("x").value
+                y = document.getElementById("y").value
+                z = document.getElementById("z").value
+                var v = new Vec3(x,y,z);
+                min = v.min();
+                mid = v.mid();
+                max = v.max();
+                document.getElementById("min").innerText = min
+                document.getElementById("mid").innerText = mid
+                document.getElementById("max").innerText = max
+            }
+        </script>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>x</th>
+                    <th>y</th>
+                    <th>z</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>v</td>
+                    <td><input type="number" value=0 id="x"></td>
+                    <td><input type="number" value=0 id="y"></td>
+                    <td><input type="number" value=0 id="z"></td>
+                </tr>
+               <tr>
+                    <td>
+                        <input type="button" value="Click Me" onClick="calc()"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <tr>
+                <th>min</th>
+                <td id="min"></td>
+            </tr>
+            <tr>
+                <th>mid</th>
+                <td id="mid"></td>
+            </tr>
+            <tr>
+                <th>max</th>
+                <td id="max"></td>
+            </tr>
+        </table>
+    </body>
+</html>

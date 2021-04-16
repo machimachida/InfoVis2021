@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Task 3</title>
+    </head>
+    <body>
+        <h1>Task 3</h1>
+        <h2>211X119X</h2>
+        <script src="vec3.js"></script>
+        <script>
+            var x0 = y0 = z0 = 0;
+            var x1 = y1 = z1 = 0;
+            var x2 = y2 = z2 = 0;
+            var S = 0;
+            function calcArea() {
+                x0 = document.getElementById("x0").value
+                y0 = document.getElementById("y0").value
+                z0 = document.getElementById("z0").value
+                x1 = document.getElementById("x1").value
+                y1 = document.getElementById("y1").value
+                z1 = document.getElementById("z1").value
+                x2 = document.getElementById("x2").value
+                y2 = document.getElementById("y2").value
+                z2 = document.getElementById("z2").value
+                var v0 = new Vec3(x0, y0, z0);
+                var v1 = new Vec3(x1, y1, z1);
+                var v2 = new Vec3(x2, y2, z2);
+                S = AreaOfTriangle(v0, v1, v2);
+                document.getElementById("result").innerText = S
+            }
+            function AreaOfTriangle(v0, v1, v2) {
+                const a = new Vec3(v1.x-v0.x, v1.y-v0.y, v1.z-v0.z);
+                const b = new Vec3(v2.x-v0.x, v2.y-v0.y, v2.z-v0.z);
+                return Math.pow(
+                    Math.pow(a.y*b.z-a.z*b.y, 2) +
+                    Math.pow(a.z*b.x-a.x*b.z, 2) +
+                    Math.pow(a.x*b.y-a.y*b.x, 2)
+                , 0.5)*0.5;
+            }
+        </script>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>x</th>
+                    <th>y</th>
+                    <th>z</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>v0</td>
+                    <td><input type="number" value=0 id="x0"></td>
+                    <td><input type="number" value=0 id="y0"></td>
+                    <td><input type="number" value=0 id="z0"></td>
+                </tr>
+                <tr>
+                    <td>v1</td>
+                    <td><input type="number" value=0 id="x1"></td>
+                    <td><input type="number" value=0 id="y1"></td>
+                    <td><input type="number" value=0 id="z1"></td>
+                </tr>
+                <tr>
+                    <td>v2</td>
+                    <td><input type="number" value=0 id="x2"/></td>
+                    <td><input type="number" value=0 id="y2"/></td>
+                    <td><input type="number" value=0 id="z2"/></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Click Me" onClick="calcArea()"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>S(area)</th>
+                    <td id="result"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
