@@ -22,12 +22,20 @@ class Vec3 {
     }
 
     mid() {
-        if(this.x != this.min() && this.x != this.max()) {
-            return x;
-        } else if(this.y != this.min() && this.y != this.max()) {
-            return y;
+        if(this.x >= this.y) {
+            if(this.y >= this.z) {
+                return this.y;
+            } else if(this.x <= this.z) {
+                return this.x;
+            } else {
+                return this.z;
+            }
+        } else if(this.x > this.z) {
+            return this.x;
+        } else if(this.y > this.z) {
+            return this.z;
         } else {
-            return z;
+            return this.y;
         }
     }
 
