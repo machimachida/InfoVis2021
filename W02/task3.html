@@ -12,15 +12,15 @@
             var x2 = y2 = z2 = 0;
             var S = 0;
             function calcArea() {
-                x0 = document.getElementById("x0").value
-                y0 = document.getElementById("y0").value
-                z0 = document.getElementById("z0").value
-                x1 = document.getElementById("x1").value
-                y1 = document.getElementById("y1").value
-                z1 = document.getElementById("z1").value
-                x2 = document.getElementById("x2").value
-                y2 = document.getElementById("y2").value
-                z2 = document.getElementById("z2").value
+                x0 = Number(document.getElementById("x0").value)
+                y0 = Number(document.getElementById("y0").value)
+                z0 = Number(document.getElementById("z0").value)
+                x1 = Number(document.getElementById("x1").value)
+                y1 = Number(document.getElementById("y1").value)
+                z1 = Number(document.getElementById("z1").value)
+                x2 = Number(document.getElementById("x2").value)
+                y2 = Number(document.getElementById("y2").value)
+                z2 = Number(document.getElementById("z2").value)
                 var v0 = new Vec3(x0, y0, z0);
                 var v1 = new Vec3(x1, y1, z1);
                 var v2 = new Vec3(x2, y2, z2);

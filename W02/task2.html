@@ -10,9 +10,9 @@
             var x = y = z = 0;
             var min = mid = max = 0;
             function calc() {
-                x = document.getElementById("x").value
-                y = document.getElementById("y").value
-                z = document.getElementById("z").value
+                x = Number(document.getElementById("x").value)
+                y = Number(document.getElementById("y").value)
+                z = Number(document.getElementById("z").value)
                 var v = new Vec3(x,y,z);
                 min = v.min();
                 mid = v.mid();

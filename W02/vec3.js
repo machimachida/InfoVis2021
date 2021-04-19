@@ -14,19 +14,24 @@ class Vec3 {
     }
 
     sum() {
-        return this.x + this.y + this.z
+        return this.x + this.y + this.z;
     }
 
     min() {
-        return Math.min(this.x, this.y, this.z)
+        return Math.min(this.x, this.y, this.z);
     }
 
     mid() {
-        const arr = [this.x, this.y, this.z]
-        return arr.sort()[1]
+        if(this.x != this.min() && this.x != this.max()) {
+            return x;
+        } else if(this.y != this.min() && this.y != this.max()) {
+            return y;
+        } else {
+            return z;
+        }
     }
 
     max() {
-        return Math.max(this.x, this.y, this.z)
+        return Math.max(this.x, this.y, this.z);
     }
 }
