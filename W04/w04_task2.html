@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>W04: Task2</title>
+    </head>
+    <body>
+        <h1>Task2: 灘区の都市計画(1-3月)</h1>
+        <small>API: 土地総合情報システムを利用. https://www.land.mlit.go.jp/webland/api/TradeListSearch?from=20201&to=20203&city=28102</small>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <div>
+        </div>
+    </body>
+</html>
+
+<script>
+    d3.json("https://www.land.mlit.go.jp/webland/api/TradeListSearch?from=20201&to=20203&city=28102", (res) => {
+        if(res.data == undefined) {
+            console.log("API ERROR");
+        } else {
+            let data = [];
+            let count = {};
+            const colors = ["#ff4b00", "#fff100", "#03af7a", "#005aff", "#4dc4dd", "#ff8082", "#f6aa00", "#990099", "#804000"];
+            const resData = res.data.map(obj => obj.CityPlanning);
+            for(var i=0; i<resData.length; i++) {
+                const el = resData[i];
+                count[el] = (count[el] || 0) + 1;
+            }
+            i = 0;
+            Object.keys(count).forEach((key) => {
+                data.push({"name": key, "width": count[key], "color": colors[i%colors.length]});
+                i++;
+            });
+            console.log(data);
+
+            const margin = {top: 20, right: 20, bottom: 30, left: 160}
+            const width = 600 - margin.left - margin.right
+            const height = 250 - margin.top - margin.bottom
+
+            const y = d3.scaleBand()
+                        .range([height, 0])
+                        .padding(0.1);
+            
+            const x = d3.scaleLinear()
+                        .range([0, width]);
+            
+            var svg = d3.select("body").select("div").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", 
+                      "translate(" + margin.left + "," + margin.top + ")");
+            
+                x.domain([0, d3.max(data, function(d){ return d.width; })])
+                y.domain(data.map(function(d) { return d.name; }));
+            
+                svg.selectAll("div")
+                   .data(data)
+                   .enter().append("rect")
+                   .attr("class", "bar")
+                   .attr("width", function(d) {return x(d.width); } )
+                   .attr("y", function(d) { return y(d.name); })
+                   .attr("height", y.bandwidth())
+                   .style("fill", function(d){ return d.color; })
+            
+                svg.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x));
+                svg.append("g")
+                    .call(d3.axisLeft(y));
+        }
+    });
+</script>
