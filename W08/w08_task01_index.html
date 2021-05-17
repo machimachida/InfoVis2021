@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>W8: Task 01</title>
+    </head>
+    <body>
+        <h1>Task1: 灘区の都市計画</h1>
+        <p>
+            初期値として試しにGithub上のJSONを読み込んでいます。<br>
+            フォームへ値を入力し、updateボタンを押すことでAPIを利用できます。<br>
+            sortボタンでデータを降順ソートできます。
+        </p>
+        <table>
+            <tr>
+                <th></th>
+                <th>年</th>
+                <th>四半期(1-4)</th>
+                <th></th>
+                <th>年</th>
+                <th>四半期(1-4)</th>
+            </tr>
+            <tr>
+                <td>from:</td>
+                <td><input type="number" value="2020" id="fy"></td>
+                <td><input type="number" value="1" id="fq"></td>
+                <td>to:</td>
+                <td><input type="number" value="2020" id="ty"></td>
+                <td><input type="number" value="3" id="tq"></td>
+                <td><input type="button" value="update" onClick="bc.update()"></td>
+                <td><input type="button" value="sort" onClick="bc.render()"></td>
+            </tr>
+        </table>
+        <p>土地総合情報システムを利用: https://www.land.mlit.go.jp/webland/api.html</p>
+        <br>
+        <svg id="drawing_region"></svg>
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <script src="w08_task01_main.js"></script>
+    </body>
+</html>

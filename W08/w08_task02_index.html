@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>W8: Task 02</title>
+    </head>
+    <body>
+        <h1>Task2</h1>
+        <p>
+            W08 Example2のデータを利用しています。<br>
+            フォームに座標を入力して、updateボタンを押すと図に反映されます。<br>
+            drawボタンで線の下部分が緑に塗られます。もう一度押すと解除されます。
+        </p>
+        <table>
+            <tr>
+                <th></th>
+                <th>X</th>
+                <th>Y</th>
+            </tr>
+            <tr>
+                <td>add:</td>
+                <td><input type="number" value="0" id="x"></td>
+                <td><input type="number" value="0" id="y"></td>
+                <td><input type="button" value="update" onClick="lc.update()"></td>
+                <td><input type="button" value="draw" onClick="lc.render()"></td>
+            </tr>
+        </table>
+        <br>
+        <svg id="drawing_region"></svg>
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <script src="w08_task02_main.js"></script>
+    </body>
+</html>
