@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title>Final Task</title>
+    </head>
+    <body>
+        <h1>Final Task</h1>
+        <p>
+            フォームへ値を入力し、updateボタンを押すことで四半期間の都道府県別の比較をおこなえます。<br>
+            都道府県別の色の濃さは土地取引の数を濃度で表したもので、取引数/最大取引数*255で色を表現しています。<br>
+            データの取得にかなり時間がかかります。ConsoleにアクセスするAPIのURLがロギングされており、それが47件表示されれば全都道府県の情報取得が完了し、描画されます。<br>
+            一度読み込んだデータは変数に保存されるため、リロードしない限りは再びAPIへアクセスすることはありません。
+        </p>
+        <table>
+            <tr>
+                <th></th>
+                <th>年</th>
+                <th>四半期(1-4)</th>
+           </tr>
+            <tr>
+                <td>from:</td>
+                <td><input type="number" value="2020" id="qy"></td>
+                <td><input type="number" value="1" id="qq"></td>
+                <td><input type="button" value="update" onClick="bc.update()"></td>
+            </tr>
+        </table>
+        <p>土地総合情報システムを利用: https://www.land.mlit.go.jp/webland/api.html</p>
+        <br>
+        <svg id="geo_region"></svg>
+        <svg id="drawing_region"></svg>
+
+        <!--<p>
+            フォームへ値を入力し、updateボタンを押すことで選択した都道府県の土地取引数の推移の比較をおこなえます。<br>
+            グラフには最大3つの都道府県を描画できます。都道府県選択フォームでCtrlキーを押しながら選択することで複数都道府県を選択できます。
+        </p>
+        <table>
+            <tr>
+                <th></th>
+                <th>年</th>
+                <th>四半期(1-4)</th>
+                <th></th>
+                <th>年</th>
+                <th>四半期(1-4)</th>
+                <th></th>
+                <th>都道府県選択</th>
+            </tr>
+            <tr>
+                <td>from:</td>
+                <td><input type="number" value="2020" id="fy"></td>
+                <td><input type="number" value="1" id="fq"></td>
+                <td>to:</td>
+                <td><input type="number" value="2020" id="ty"></td>
+                <td><input type="number" value="1" id="tq"></td>
+                <td><input type="button" value="update" onClick="lc.update()"></td>
+
+                <td><select id="selectedPrefs" size="5" multiple>
+                    <option value="Hokkaido">Hokkaido</option>
+                    <option value="Aomori"  >Aomori</option>
+                    <option value="Iwate"   >Iwate</option>
+                    <option value="Miyagi"  >Miyagi</option>
+                    <option value="Akita"   >Akita</option>
+                    <option value="Yamagata">Yamagata</option>
+                    <option value="Fukushima">Fukushima</option>
+                    <option value="Ibaraki" >Ibaraki</option>
+                    <option value="Tochigi" >Tochigi</option>
+                    <option value="Gunma"   >Gunma</option>
+                    <option value="Saitama" >Saitama</option>
+                    <option value="Chiba"   >Chiba</option>
+                    <option value="Tokyo"   >Tokyo</option>
+                    <option value="Kanagawa">Kanagawa</option>
+                    <option value="Niigata" >Niigata</option>
+                    <option value="Toyama"  >Toyama</option>
+                    <option value="Ishikawa">Ishikawa</option>
+                    <option value="Fukui"   >Fukui</option>
+                    <option value="Yamanashi">Yamanashi</option>
+                    <option value="Nagano"  >Nagano</option>
+                    <option value="Gifu"    >Gifu</option>
+                    <option value="Shizuoka">Shizuoka</option>
+                    <option value="Aichi"   >Aichi</option>
+                    <option value="Mie"     >Mie</option>
+                    <option value="Shiga"   >Shiga</option>
+                    <option value="Kyoto"   >Kyoto</option>
+                    <option value="Osaka"   >Osaka</option>
+                    <option value="Hyogo"   >Hyogo</option>
+                    <option value="Nara"    >Nara</option>
+                    <option value="Wakayama">Wakayama</option>
+                    <option value="Tottori" >Tottori</option>
+                    <option value="Shimane" >Shimane</option>
+                    <option value="Okayama" >Okayama</option>
+                    <option value="Hiroshima">Hiroshima</option>
+                    <option value="Yamaguchi">Yamaguchi</option>
+                    <option value="Tokushima">Tokushima</option>
+                    <option value="Kagawa"  >Kagawa</option>
+                    <option value="Ehime"   >Ehime</option>
+                    <option value="Kochi"   >Kochi</option>
+                    <option value="Fukuoka" >Fukuoka</option>
+                    <option value="Saga"    >Saga</option>
+                    <option value="Nagasaki">Nagasaki</option>
+                    <option value="Kumamoto">Kumamoto</option>
+                    <option value="Oita"    >Oita</option>
+                    <option value="Miyazaki">Miyazaki</option>
+                    <option value="Kagoshima">Kagoshima</option>
+                    <option value="Okinawa" >Okinawa</option>
+                </select></td>
+            </tr>
+        </table>
+        <svg id="line_region"></svg>-->
+
+
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <script src="bar_main.js"></script>
+        <script src="geo.js"></script>
+        <script src="geo_main.js"></script>
+        <!--<script src="line_main.js"></script>-->
+    </body>
+</html>
